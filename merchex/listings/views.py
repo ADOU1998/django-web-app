@@ -1,12 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from listings.models import Band # Importation de la BD
+from listings.models import Band # Importation de la table Band
 from listings.models import Listing
 
 # Create your views here.
 def hello(request):
-    # Requette pour afficher touts les champs dans band
-    bands = Band.objects.all()
+    bands = Band.objects.all() # Requette pour afficher touts les champs dans band
     return render(request, 'brands/hello.html', {'bands': bands})
 
 # fonction a propos

@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merchex</title>
-</head>
-<body>
+<!-- hello.html hérite de la base.html -->
+{% extends 'listings/base.html' %}
 
-    <h1>Hello Django !</h2>
-        <p>Mes groupes préférés sont :</p>
-        <p>J'ai {{ bands|length }} groupes préférés.</p>
-        <!-- Afficher tous les informations du groupes -->
-        <ul>
-            {% for band in bands %}
-                <li>{{ band.name|upper }}</li>
-            {% endfor %}
-        </ul>
+{% block content %}
+
+<h1>Hello Django !</h2>
+<p>Mes groupes préférés sont :</p>
+
+<p>J'ai {{ bands|length }} groupes préférés.</p>
+<!-- Afficher tous les informations du groupes -->
+<ul>
+    {% for band in bands %}
+        <li>{{ band.name|upper }}</li>
+    {% endfor %}
+</ul>
     
-</body>
-</html>
+{% endblock %}
