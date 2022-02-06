@@ -18,12 +18,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='listing',
-            name='sold',
-            field=models.IntegerField(default='', max_length=10),
-            preserve_default=False,
-        ),
-        migrations.AddField(
-            model_name='listing',
             name='type',
             field=models.CharField(choices=[('REC', 'Records'), ('CLO', 'Clothing'), ('POST', 'Posters'), ('MIS', 'Miscellaneous')], default='REC', max_length=15),
             preserve_default=False,
