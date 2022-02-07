@@ -49,3 +49,6 @@ class Listing(models.Model):
     #   Afficher le titre des listings
     def __str__(self):
         return f'{self.title}'
+
+    
+    

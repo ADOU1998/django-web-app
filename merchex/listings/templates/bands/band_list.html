@@ -3,14 +3,15 @@
 
 {% block content %}
 
-<h1>Hello Django !</h2>
-<p>Mes groupes préférés sont :</p>
+<h1>Groupes</h1>
 
 <p>J'ai {{ bands|length }} groupes préférés.</p>
 <!-- Afficher tous les informations du groupes -->
 <ul>
     {% for band in bands %}
-        <li>{{ band.name|upper }}</li>
+        <li>
+            <a href="{% url 'band-detail' band.id %}"> {{ band.name|upper }} </a> <!--faire le lien et rélier les deux modele-->
+        </li>
     {% endfor %}
 </ul>
     

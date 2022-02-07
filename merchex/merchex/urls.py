@@ -20,9 +20,13 @@ from listings import views
 # Les chemins URL
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', views.hello),
+    path('bands/', views.band_list, name='band-list'), # Voir la liste
+    path('bands/<int:id>/', views.band_detail, name='band-detail'), # Pour voir chaque élément via l'id
+    path('bands/add', views.band_create, name='band-create'), # Pour créer un formumaire : band
     path('about-us/', views.about),
-    path('listings/', views.listings),
-    path('contacts/', views.contacts),
+    path('listings/', views.listing_list, name='listing-list'),
+    path('listings/<int:id>', views.listing_detail, name='listing-detail'),
+    path('contact-us/', views.contact, name='contact'),
+    #path('listings/', views.email_sent, name='email-sent')
 ]
 
