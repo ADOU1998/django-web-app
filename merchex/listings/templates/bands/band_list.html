@@ -3,16 +3,39 @@
 
 {% block content %}
 
-<h1>Groupes</h1>
+<h1>Liste des groupes</h1>
+
+<!-- Lien -->
+<a href="{% url 'band-create' %}">Créer un nouveau groupe</a>
 
 <p>J'ai {{ bands|length }} groupes préférés.</p>
 <!-- Afficher tous les informations du groupes -->
-<ul>
-    {% for band in bands %}
-        <li>
-            <a href="{% url 'band-detail' band.id %}"> {{ band.name|upper }} </a> <!--faire le lien et rélier les deux modele-->
-        </li>
-    {% endfor %}
-</ul>
-    
+<table>
+    <thead>
+        <th>Nom</th>
+        <th>Genre</th>
+        <th>Biographie</th>
+        <th>Année de formation</th>
+        <th>Staut</th>
+        <th>Page officiel</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        {% for band in bands %}
+          <tr>
+            <td>{{ band.name|upper }}</td>
+            <td>{{ band.genre }}</td>
+            <td>{{ band.biography }}</td>
+            <td>{{ band.year_formed }}</td>
+            <td>{{ band.active }}</td>
+            <td>{{ band.offials_homepage }}</td>
+            <td>
+                <a href="{% url 'band-detail' band.id %}">Voir</a> <!--faire le lien et rélier les deux modele-->
+                <a href="{% url 'band-update' band.id %}">[Modifier]</a> <!-- lien pour modifier -->
+                <a href="{% url 'band-delete' band.id %}">[Supprimer]</a> <!-- lien pour supprimer -->
+            </td>
+          </tr>
+        {% endfor %}
+    </tbody>
+</table>    
 {% endblock %}

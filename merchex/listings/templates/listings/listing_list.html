@@ -3,12 +3,35 @@
 {% block content %}
 
 <h1>Liste des annonces pour les articles.</h1>
+<a href="{% url 'listing-create' %}">Créer une nouvelle annonce</a>
 <ul>
-    {% for listing in listings %}
-        <li>
-            <a href="{% url 'listing-detail' listing.id %}">{{ listing.title }}</a>
-        </li>
-    {% endfor %}
+    <table>
+        <thead>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Sold</th>
+            <th>Année</th>
+            <th>Type</th>
+            <th>Annonces</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            {% for listing in listings %}
+            <tr>
+                <td>{{ listing.title }}</td>
+                <td>{{ listing.description }}</td>
+                <td>{{ listing.sold }}</td>
+                <td>{{ listing.year }}</td>
+                <td>{{ listing.type }}</td>
+                <td>{{ listing.band }}</td>
+                <td>
+                    <a href="{% url 'listing-detail' listing.id %}">Voir</a>
+                    <a href="{% url 'listing-update' listing.id %}">[Modifier]</a> <!-- lien pour modifier -->
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
 
 </ul>

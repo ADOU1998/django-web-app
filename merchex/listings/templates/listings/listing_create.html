@@ -2,12 +2,12 @@
 
 {% block content %}
 
-<h1>Créer un nouveau groupe</h1>
+<h1>Créer une nouvelle annonce</h1>
 
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <a href="{% url 'band-list' %}">Retour</a>
+    <a href="{% url 'listing-list' %}">Reteur</a>
     <input type="submit" value="Envoyer">
   </form>
 
